@@ -13,9 +13,9 @@ namespace Snakes
          Token = token ?? throw new ArgumentNullException(nameof(token));
       }
 
-      public int Roll()
+      public void Roll()
       {
-         return Dice.Roll();
+         Token.Move(Dice.Roll());
       }
 
       public bool Won()

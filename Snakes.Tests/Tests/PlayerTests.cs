@@ -27,13 +27,17 @@ namespace Snakes
       }
 
       [Fact]
-      public void PlayerRolls()
+      public void PlayerRollsAndMovesToken()
       {
-         Player player = new Player(new Dice(), new Token());
-         
-         int moves = player.Roll();
+         FakeDice dice = new FakeDice();
+         dice.Returns(4);
 
-         Assert.InRange(moves, 1, 6);
+         Token token = new Token();
+         Player player = new Player(dice, token);
+
+         player.Roll();
+
+         Assert.Equal(5, token.Position);
       }
    }
 }
