@@ -14,5 +14,16 @@ namespace Snakes
 
          Assert.True(player.Won());
       }
+
+      [Fact]
+      public void PlayerDoesNotWinWhenTokenNotInFinalSquare()
+      {
+         Token token = new Token(97);
+         Player player = new Player(token);
+
+         token.Move(4);
+
+         Assert.False(player.Won());
+      }      
    }
 }
