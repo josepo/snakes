@@ -13,7 +13,10 @@ namespace Snakes
 
       public void Move(int moves)
       {
-         Position += moves;
+         int position = Position + moves;
+
+         if (position <= 100)
+            Position = position;
       }
    }
 }

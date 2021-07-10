@@ -30,5 +30,14 @@ namespace Snakes.Tests
 
          Assert.Equal(8, token.Position);
       }
+
+      [Fact]
+      public void TokenWontMovePastBoardLimit()
+      {
+         Token token = new Token(97);
+         token.Move(4);
+
+         Assert.Equal(97, token.Position);
+      }
    }
 }
