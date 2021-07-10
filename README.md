@@ -10,4 +10,10 @@ To run tests, on the main folder:
 $> dotnet test
 ```
 
+To run the app, go to the project folder and run `dotnet`:
+```
+$> cd Snakes
+$Snakes> dotnet run
+```
+
 
