@@ -8,7 +8,7 @@ namespace Snakes
       public void PlayerWins()
       {
          Token token = new Token(97);
-         Player player = new Player(token);
+         Player player = new Player(new Dice(), token);
 
          token.Move(3);
 
@@ -19,7 +19,7 @@ namespace Snakes
       public void PlayerDoesNotWin()
       {
          Token token = new Token(97);
-         Player player = new Player(token);
+         Player player = new Player(new Dice(), token);
 
          token.Move(4);
 
@@ -29,9 +29,9 @@ namespace Snakes
       [Fact]
       public void PlayerRolls()
       {
-         Player player = new Player(new Token());
+         Player player = new Player(new Dice(), new Token());
          
-         int moves = player.Rolls();
+         int moves = player.Roll();
 
          Assert.InRange(moves, 1, 6);
       }
