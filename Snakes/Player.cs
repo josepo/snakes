@@ -22,5 +22,10 @@ namespace Snakes
       {
          return Token.Position == 100;
       }
+
+      public override string ToString()
+      {
+         return $"\nYour current position is { Token.Position }.";
+      }
    }
 }
