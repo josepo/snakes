@@ -15,7 +15,8 @@ namespace Snakes.Tests
       [Fact]
       public void TokenMoves()
       {
-         Token token = new Token().Move(3);
+         Token token = new Token();
+         token.Move(3);
 
          Assert.Equal(4, token.Position);
       }
@@ -23,7 +24,9 @@ namespace Snakes.Tests
       [Fact]
       public void TokenMovesTwice()
       {
-         Token token = new Token().Move(3).Move(4);
+         Token token = new Token();
+         token.Move(3);
+         token.Move(4);
 
          Assert.Equal(8, token.Position);
       }

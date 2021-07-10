@@ -6,14 +6,14 @@ namespace Snakes
 
       public Token() : this(1) {}
 
-      private Token(int position)
+      public Token(int position)
       {
          Position = position;
       }
 
-      public Token Move(int moves)
+      public void Move(int moves)
       {
-         return new Token(Position + moves);
+         Position += moves;
       }
    }
 }
