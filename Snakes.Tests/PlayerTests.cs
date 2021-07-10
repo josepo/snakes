@@ -5,7 +5,7 @@ namespace Snakes
    public class PlayerTests
    {
       [Fact]
-      public void PlayerWinsWhenTokenInFinalSquare()
+      public void PlayerWins()
       {
          Token token = new Token(97);
          Player player = new Player(token);
@@ -16,7 +16,7 @@ namespace Snakes
       }
 
       [Fact]
-      public void PlayerDoesNotWinWhenTokenNotInFinalSquare()
+      public void PlayerDoesNotWin()
       {
          Token token = new Token(97);
          Player player = new Player(token);
@@ -24,6 +24,16 @@ namespace Snakes
          token.Move(4);
 
          Assert.False(player.Won());
-      }      
+      }
+
+      [Fact]
+      public void PlayerRolls()
+      {
+         Player player = new Player(new Token());
+         
+         int moves = player.Rolls();
+
+         Assert.InRange(moves, 1, 6);
+      }
    }
 }

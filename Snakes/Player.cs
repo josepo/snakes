@@ -11,6 +11,11 @@ namespace Snakes
          Token = token ?? throw new ArgumentNullException(nameof(token));
       }
 
+      public int Rolls()
+      {
+         return new Random().Next(1, 6);
+      }
+
       public bool Won()
       {
          return Token.Position == 100;
