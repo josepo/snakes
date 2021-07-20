@@ -22,7 +22,7 @@ namespace Snakes
          int newPosition = Position + Dice.Roll();
 
          if (newPosition <= Board.End)
-            Position = newPosition;
+            Position = Board.FinalPositionFor(newPosition);
       }
 
       public bool Won()

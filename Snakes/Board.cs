@@ -35,5 +35,18 @@ namespace Snakes
          { 78, 98 },
          { 87, 94 }
       };
+
+      public int FinalPositionFor(int position)
+      {
+         int newPosition;
+
+         if (Snakes.TryGetValue(position, out newPosition))
+            return newPosition;
+
+         if (Ladders.TryGetValue(position, out newPosition))
+            return newPosition;
+
+         return position;
+      }
    }
 }
