@@ -10,7 +10,7 @@ namespace Snakes
          FakeDice dice = new FakeDice();
          dice.Returns(3);
 
-         Player player = new Player(dice, 97);
+         Player player = new Player(dice, new Board(), 97);
 
          player.Roll();
 
@@ -23,7 +23,7 @@ namespace Snakes
          FakeDice dice = new FakeDice();
          dice.Returns(4);
 
-         Player player = new Player(dice, 97);
+         Player player = new Player(dice, new Board(), 97);
 
          player.Roll();
 
@@ -36,7 +36,7 @@ namespace Snakes
          FakeDice dice = new FakeDice();
          dice.Returns(4);
 
-         Player player = new Player(dice);
+         Player player = new Player(dice, new Board());
 
          player.Roll();
 

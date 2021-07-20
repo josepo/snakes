@@ -5,13 +5,15 @@ namespace Snakes
    public class Player
    {
       private IDice Dice { get; set; }
+      private Board Board { get; set; }
       public int Position { get; private set; }
 
-      public Player(IDice dice) : this(dice, 1) {}
+      public Player(IDice dice, Board board) : this(dice, board, board.Start) {}
 
-      public Player(IDice dice, int position)
+      public Player(IDice dice, Board board, int position)
       {
          Dice = dice ?? throw new ArgumentNullException(nameof(dice));
+         Board = board ?? throw new ArgumentNullException(nameof(board));
          Position = position;
       }
 
@@ -19,13 +21,13 @@ namespace Snakes
       {
          int newPosition = Position + Dice.Roll();
 
-         if (newPosition <= 100)
+         if (newPosition <= Board.End)
             Position = newPosition;
       }
 
       public bool Won()
       {
-         return Position == 100;
+         return Position == Board.End;
       }
 
       public override string ToString()
