@@ -7,10 +7,12 @@ namespace Snakes
       [Fact]
       public void PlayerWins()
       {
-         Token token = new Token(97);
-         Player player = new Player(new Dice(), token);
+         FakeDice dice = new FakeDice();
+         dice.Returns(3);
 
-         token.Move(3);
+         Player player = new Player(dice, 97);
+
+         player.Roll();
 
          Assert.True(player.Won());
       }
@@ -18,10 +20,12 @@ namespace Snakes
       [Fact]
       public void PlayerDoesNotWin()
       {
-         Token token = new Token(97);
-         Player player = new Player(new Dice(), token);
+         FakeDice dice = new FakeDice();
+         dice.Returns(4);
 
-         token.Move(4);
+         Player player = new Player(dice, 97);
+
+         player.Roll();
 
          Assert.False(player.Won());
       }
@@ -32,12 +36,11 @@ namespace Snakes
          FakeDice dice = new FakeDice();
          dice.Returns(4);
 
-         Token token = new Token();
-         Player player = new Player(dice, token);
+         Player player = new Player(dice);
 
          player.Roll();
 
-         Assert.Equal(5, token.Position);
+         Assert.Equal(5, player.Position);
       }
    }
 }

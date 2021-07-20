@@ -7,7 +7,7 @@ namespace Snakes
       static void Main(string[] args)
       {
          bool quit = false;
-         Player player = new Player(new Dice(), new Token());
+         Player player = new Player(new Dice());
 
          while (!quit)
          {

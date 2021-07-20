@@ -5,27 +5,32 @@ namespace Snakes
    public class Player
    {
       private IDice Dice { get; set; }
-      public Token Token { get; private set; }
+      public int Position { get; private set; }
 
-      public Player(IDice dice, Token token)
+      public Player(IDice dice) : this(dice, 1) {}
+
+      public Player(IDice dice, int position)
       {
          Dice = dice ?? throw new ArgumentNullException(nameof(dice));
-         Token = token ?? throw new ArgumentNullException(nameof(token));
+         Position = position;
       }
 
       public void Roll()
       {
-         Token.Move(Dice.Roll());
+         int newPosition = Position + Dice.Roll();
+
+         if (newPosition <= 100)
+            Position = newPosition;
       }
 
       public bool Won()
       {
-         return Token.Position == 100;
+         return Position == 100;
       }
 
       public override string ToString()
       {
-         return $"\nYour current position is { Token.Position }.";
+         return $"\nYour current position is { Position }.";
       }
    }
 }
